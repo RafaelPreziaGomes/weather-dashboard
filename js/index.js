@@ -1,7 +1,29 @@
+function removeElement(id) {
+    var elem = document.getElementById(id);
+    return elem.parentNode.removeChild(elem);
+}
+
+document.querySelector("#clearCityButton").addEventListener("click", function() {
+    document.getElementById("searchHistory").parentNode.removeChild(document.getElementById("searchHistory"))
+})
 
 document.querySelector("#searchCityButton").addEventListener("click", () => {
     var searchCity = document.querySelector("#searchCity").value
     console.log(searchCity)
+    
+    var historyParagraph = document.createElement("p")
+    historyParagraph.setAttribute("id", "searchHistory")
+    historyParagraph.innerHTML = searchCity
+    document.querySelector(".history").appendChild(historyParagraph)
+    
+    for (i=0;i<6; i++) {
+        document.querySelectorAll("#temp")[i].textContent = " "
+        document.querySelectorAll("#wind")[i].textContent = ""
+        document.querySelectorAll("#humidity")[i].textContent = ""
+        document.querySelectorAll("#uvi")[i].textContent = ""
+        document.querySelectorAll("#conditions")[i].textContent = ""
+    }
+
     getGeo(searchCity)
 })
 
@@ -55,7 +77,7 @@ function getWeather(lat, lon) {
     for (i=1;i<6;i++){
         var dailyTemp = data.daily[i].temp.day
         var dailyTempDiv = document.querySelectorAll("#temp")[i]
-        dailyTempDiv.append("Current temp: "+ Math.floor(dailyTemp))
+        dailyTempDiv.append("Avarage Temp: "+ Math.floor(dailyTemp))
         var dailyWindSpeed = data.daily[i].wind_speed
         var dailyWindSpeedDiv = document.querySelectorAll("#wind")[i]
         dailyWindSpeedDiv.append("Wind Speed: " + dailyWindSpeed)
