@@ -28,7 +28,7 @@ document.querySelector("#searchCityButton").addEventListener("click", () => {
 })
 
 function getGeo(cityValue) {
-    fetch (`http://api.openweathermap.org/geo/1.0/direct?q=${cityValue}&appid=604bb90009d2c2eedf41eec0044eb20a`)
+    fetch (`http://api.openweathermap.org/geo/1.0/direct?q=${cityValue}&appid=ccacfb31397f03e28f037bc9028878d9`)
     .then(reponse => reponse.json())
     .then(data => { console.log(data)
     
@@ -37,7 +37,7 @@ function getGeo(cityValue) {
 }
 
 function getWeather(lat, lon) {
-    fetch (`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=604bb90009d2c2eedf41eec0044eb20a&units=imperial`)
+    fetch (`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=ccacfb31397f03e28f037bc9028878d9&units=imperial`)
     .then(reponse => reponse.json())
     .then(data => { console.log(data)
     var currentTemp = data.current.temp
