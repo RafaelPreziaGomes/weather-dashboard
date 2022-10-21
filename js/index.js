@@ -28,7 +28,7 @@ document.querySelector("#searchCityButton").addEventListener("click", () => {
 })
 
 function getGeo(cityValue) {
-    fetch (`http://api.openweathermap.org/geo/1.0/direct?q=${cityValue}&appid=ccacfb31397f03e28f037bc9028878d9`)
+    fetch (`https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=ccacfb31397f03e28f037bc9028878d9`)
     .then(reponse => reponse.json())
     .then(data => { console.log(data)
     
